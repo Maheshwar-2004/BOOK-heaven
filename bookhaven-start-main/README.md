@@ -1,52 +1,86 @@
+# 📚 BookHaven
 
+A full-stack **Book Review Platform** built using the **MERN stack (MongoDB, Express, React, Node.js)**.  
+Users can sign up, log in, add books, write reviews, and explore books with ratings — all in one place.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🎯 Objective
+Build a Book Review Platform where users can:
+- Sign up & log in securely
+- Add, edit, and delete their own books
+- Write and manage reviews
+- Explore all books with pagination and average ratings
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🚀 Features
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 🔐 User Authentication
+- Sign up with **Name, Email, and Password (hashed with bcrypt)**
+- Log in using Email & Password
+- JWT-based authentication
+- Protected routes for logged-in users
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 📘 Book Management
+- Add books with **Title, Author, Description, Genre, and Published Year**
+- Edit/Delete only your own books
+- View all books with **pagination (5 per page)**
+- **Auto-seeding:** On first run, the platform automatically adds around **20 random sample books** with realistic details so the homepage isn’t empty.
 
-# Step 3: Install the necessary dependencies.
-npm i
+### ⭐ Review System
+- Add reviews with **Rating (1–5 stars)** and **Review Text**
+- Edit/Delete your own reviews
+- View all reviews and average rating on each book’s details page
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## 🧠 Tech Stack
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**Frontend:**
+- React  
+- React Router  
+- Context API  
+- Axios / Fetch  
+- Tailwind CSS or Bootstrap  
 
-**Use GitHub Codespaces**
+**Backend:**
+- Node.js  
+- Express.js  
+- MongoDB (MongoDB Atlas)  
+- Mongoose  
+- bcrypt  
+- JWT Authentication  
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🗄️ Database Schema Design
 
-This project is built with:
+### 👤 User Schema
+```js
+{
+  name: String,
+  email: String,
+  password: String
+}
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Book Schema**
+```js
+{
+  title: String,
+  author: String,
+  description: String,
+  genre: String,
+  year: Number,
+  addedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
+}
 
+**Review Schema**
+```js
+{
+  bookId: { type: mongoose.Schema.Types.ObjectId, ref: "Book" },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  rating: Number,
+  reviewText: String
+}
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
