@@ -64,8 +64,6 @@ Build a Book Review Platform where users can:
   password: String
 }
 
-**Book Schema**
-```js
 {
   title: String,
   author: String,
@@ -74,13 +72,12 @@ Build a Book Review Platform where users can:
   year: Number,
   addedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 }
-
-**Review Schema**
-```js
 {
   bookId: { type: mongoose.Schema.Types.ObjectId, ref: "Book" },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   rating: Number,
   reviewText: String
+}
+
 }
 
