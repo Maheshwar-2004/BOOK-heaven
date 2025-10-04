@@ -3,6 +3,10 @@
 A full-stack **Book Review Platform** built using the **MERN stack (MongoDB, Express, React, Node.js)**.  
 Users can sign up, log in, add books, write reviews, and explore books with ratings — all in one place.
 
+
+🌐 **Live Demo:** [https://bookhaven-start.lovable.app](https://bookhaven-start.lovable.app)
+
+
 ---
 
 ## 🎯 Objective
